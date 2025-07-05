@@ -1,0 +1,15 @@
+README.md
+setup.py
+coggle/__init__.py
+coggle/cli.py
+coggle.egg-info/PKG-INFO
+coggle.egg-info/SOURCES.txt
+coggle.egg-info/dependency_links.txt
+coggle.egg-info/entry_points.txt
+coggle.egg-info/requires.txt
+coggle.egg-info/top_level.txt
+coggle/core/__init__.py
+coggle/core/injector.py
+coggle/core/kaggle_runner.py
+coggle/schemas/__init__.py
+coggle/schemas/kernel_metadata.py

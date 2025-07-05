@@ -1,0 +1,2 @@
+pydantic>=2.0
+kaggle>=1.5.12
