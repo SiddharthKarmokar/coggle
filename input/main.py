@@ -23,4 +23,7 @@ class Tee:
 
 Tee("logs/output.log")
 
-print('Hello world')
+os.makedirs("output", exist_ok=True)
+
+with open("output/results.txt", "w") as f:
+    f.write("Hello from Kaggle kernel!")

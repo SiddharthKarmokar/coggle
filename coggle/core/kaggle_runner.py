@@ -1,7 +1,9 @@
 import subprocess
 import os
 from pathlib import Path
+from subprocess import run, CalledProcessError
 from coggle.schemas.kernel_metadata import KernelMetadata
+from coggle.exceptions import KaggleAuthError
 
 def build_kernel_metadata(username: str, slug: str, code_file: str, title: str, private=True, gpu=False):
     return KernelMetadata(
@@ -14,10 +16,19 @@ def build_kernel_metadata(username: str, slug: str, code_file: str, title: str, 
 
 def push_kernel(project_path: str):
     try:
-        subprocess.run(["kaggle", "kernels", "push", "-p", project_path], check=True)
-        print("[coggle] Kernel pushed to Kaggle.")
-    except subprocess.CalledProcessError as e:
-        print("[coggle] Error: Failed to push kernel.")
+        result = run(
+            ["kaggle", "kernels", "push", "-p", project_path],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        print("[Info] Kernel pushed to Kaggle.")
+    except CalledProcessError as e:
+        stderr = e.stderr or ""
+        if "Could not find kaggle.json" in stderr:
+            raise KaggleAuthError()
+        print("[Error] Failed to push kernel.")
+        print(stderr.strip())
         raise e
 
 def download_outputs(kernel_id: str, out_dir: str):

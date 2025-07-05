@@ -1,6 +1,10 @@
 .vscode/
 .env
 .venv/
+venv/
 __pycache__/
 .idx/
-
+input/
+output/
+kaggle.json
+coggle.egg-info/
