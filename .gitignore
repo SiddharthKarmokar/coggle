@@ -6,5 +6,7 @@ __pycache__/
 .idx/
 input/
 output/
+artifacts/
+downloaded-artifacts/
 kaggle.json
 coggle.egg-info/

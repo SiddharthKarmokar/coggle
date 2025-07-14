@@ -1,2 +1,4 @@
 pydantic
 kaggle
+PyDrive2
+oauth2client

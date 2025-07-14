@@ -9,6 +9,8 @@ setup(
     install_requires=[
         "pydantic>=2.0",
         "kaggle>=1.5.12",
+        "PyDrive2>=1.15.4",
+        "oauth2client>=4.1.3"
     ],
     entry_points={
         'console_scripts': [
